@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const Form = (AddTask) => {
+export const Form = ({AddTask}) => {
 	const [taskText, setTaskText] = useState("");
 
 	const handleSubmit = (e) => {
@@ -14,11 +14,14 @@ export const Form = (AddTask) => {
 	return (
 		<form onSubmit={handleSubmit}>
 			<div>
-			<input type="text" placeholder="Add a new task" />
-			<button type="submit">Add</button>
-			<button type="submit">Delete</button>
+				<input
+					type="text"
+					placeholder="Add a new task"
+					value={taskText}
+					onChange={(e) => setTaskText(e.target.value)}
+				/>
+				<button type="submit">Add</button>
 			</div>
 		</form>
 	);
 };
-

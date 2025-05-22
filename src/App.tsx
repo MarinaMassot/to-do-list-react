@@ -8,11 +8,11 @@ function App() {
 const [tasks, setTasks] = useState([]);
 const [nextId, setNextId] = useState(1);
 
-const addTask = (task) => {
-  const newTasks = [...tasks, { id: nextId, task, completed: false }];
-  setTasks(newTasks);
-  setNextId(nextId + 1)
-};
+ const addTask = (text) => {
+    const newTasks = [...tasks, { id: nextId, text, completed: false }];
+    setTasks(newTasks);
+    setNextId(nextId + 1); 
+  };
 
 const toggleTaskCompletion = (id) => {
     const updatedTasks = tasks.map((task) =>
@@ -29,7 +29,7 @@ const deleteTask = (id) => {
 
   return (
   <>
-  <h1>Tasks</h1>
+  <h1>My To Do List</h1>
   <Form AddTask={addTask} />
   <List
           tasks={tasks}
