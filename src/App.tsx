@@ -30,7 +30,7 @@ const deleteTask = (id) => {
   return (
   <>
   <h1>Tasks</h1>
-  <Form onAddTask={addTask} />
+  <Form AddTask={addTask} />
   <List
           tasks={tasks}
           onToggleComplete={toggleTaskCompletion}

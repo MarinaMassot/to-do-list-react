@@ -1,18 +1,24 @@
-export const Form = () => {
+import { useState } from "react";
+
+export const Form = (AddTask) => {
+	const [taskText, setTaskText] = useState("");
+
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		if (taskText.trim()) {
+			AddTask(taskText);
+			setTaskText("");
+		}
+	};
+
 	return (
-		<form>
+		<form onSubmit={handleSubmit}>
+			<div>
 			<input type="text" placeholder="Add a new task" />
-			<Button type="submit">Add</Button>
-			{/* <Button type="submit">Edit</Button>
-			<Button type="submit">Delete</Button> */}
+			<button type="submit">Add</button>
+			<button type="submit">Delete</button>
+			</div>
 		</form>
 	);
 };
 
-const Button = ({children, ...props}) => {
-	return (
-		<button {...props}>
-			{children}
-		</button>
-	);
-}
